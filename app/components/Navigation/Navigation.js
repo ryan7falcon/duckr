@@ -11,13 +11,13 @@ function NavLinks ({isAuthed}) {
   ? <ul>
       <li><Link className={link} to='/'>{'Home'}</Link></li>
     </ul>
-  : <div/>
+  : <div></div>
 }
 
 function ActionLinks ({isAuthed}) {
   return isAuthed === true
   ? <ul>
-      <li>New Duck</li>
+      <li>{'New Duck'}</li>
       <li><Link className={link} to='/Logout'>{'Logout'}</Link></li>
     </ul>
   : <ul>
