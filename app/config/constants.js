@@ -2,11 +2,12 @@
 import firebase from 'firebase'
 
 const config = {
-    apiKey: "AIzaSyDdmgY4tBSQik71KdcVsJ2mqZdp4jn5DQ8",
-    authDomain: "test-project-7261c.firebaseapp.com",
-    databaseURL: "https://test-project-7261c.firebaseio.com",
-    storageBucket: "test-project-7261c.appspot.com",
-    messagingSenderId: "921451786875"
+    apiKey: "AIzaSyDfjuOrs-9GZS1vH8zosJhlQHP5T3sqWP8",
+    authDomain: "duckr-app-7feb7.firebaseapp.com",
+    databaseURL: "https://duckr-app-7feb7.firebaseio.com",
+    storageBucket: "duckr-app-7feb7.appspot.com",
+    messagingSenderId: "966949379934",
+    navigateFallbackWhitelist: "[ /^\/home\//, /^\/other\// ]"
 }
 
 firebase.initializeApp(config)
