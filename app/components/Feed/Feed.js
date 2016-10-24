@@ -24,7 +24,6 @@ Feed.propTypes = {
 }
 
 export default function Feed (props) {
-  console.log(props)
   return props.isFetching === true
     ? <h1 className={header}>{'Fetching'}</h1>
     : <div>

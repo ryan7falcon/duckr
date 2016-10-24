@@ -16,7 +16,6 @@ export function logout () {
 }
 
 export function saveUser (user) {
-  console.log('User', user)
   return ref.child(`users/${user.uid}`)
     .set(user)
     .then(() => user)

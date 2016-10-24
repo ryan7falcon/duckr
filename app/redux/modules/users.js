@@ -48,7 +48,6 @@ export function fetchAndHandleAuthedUser () {
   return function (dispatch) {
     dispatch(fetchingUser())
     return auth().then(({ user, credential }) => {
-      console.log('User after auth', user)
       const userData = user.providerData[0]
       const userInfo = formatUserInfo(userData.displayName, userData.photoURL, user.uid)
       return dispatch(fetchingUserSuccess(user.uid, userInfo, Date.now()))

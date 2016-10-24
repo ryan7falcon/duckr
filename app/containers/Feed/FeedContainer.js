@@ -17,7 +17,6 @@ const FeedContainer = React.createClass({
     this.props.setAndHandleFeedListener()
   },
   render () {
-    console.log(this.props)
     return (
       <Feed
         duckIds={this.props.duckIds}
