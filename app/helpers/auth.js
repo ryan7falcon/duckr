@@ -1,8 +1,9 @@
 import { ref, firebaseAuth } from 'config/constants'
 
 export default function auth () {
-  const provider = new firebaseAuth.FacebookAuthProvider()
-  return firebaseAuth().signInWithPopup(provider)
+  // const provider = new firebaseAuth.FacebookAuthProvider()
+  // return firebaseAuth().signInWithPopup(provider)
+  return firebaseAuth().signInWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
 }
 
 export function checkIfAuthed (store) {
