@@ -19,12 +19,15 @@ function checkAuth (nextState, replace) {
 
   const isAuthed = checkIfAuthed(store)
   const nextPathName = nextState.location.pathname
-
+  console.log('isAuthed', isAuthed)
+  console.log('nextPathName', nextPathName)
   if (nextPathName === '/' || nextPathName === '/auth') {
     if (isAuthed === true) {
       replace('/feed')
     }
+
   } else {
+
     if (isAuthed !== true) {
       replace('/auth')
     }

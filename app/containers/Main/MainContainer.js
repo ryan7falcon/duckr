@@ -13,7 +13,7 @@ const MainContainer = React.createClass({
     isFetching: PropTypes.bool.isRequired,
     authUser: PropTypes.func.isRequired,
     fetchingUserSuccess: PropTypes.func.isRequired,
-    removeFetchngUser: PropTypes.func.isRequired,
+    removeFetchingUser: PropTypes.func.isRequired,
   },
   contextTypes: {
     router: PropTypes.object.isRequired,
@@ -29,7 +29,7 @@ const MainContainer = React.createClass({
           this.context.router.replace('feed')
         }
       } else {
-        this.props.removeFetchngUser()
+        this.props.removeFetchingUser()
       }
     })
   },
