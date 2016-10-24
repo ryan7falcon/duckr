@@ -6,11 +6,13 @@
   "scripts": {
     "production": "webpack -p",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:dev": "webpack-dev-server --inline --content-base app/public/ --history-api-fallback",
+    "start:dev": "webpack-dev-server --inline --content-base app/public --history-api-fallback",
     "start:prod": "npm run build && node server.bundle.js",
     "build:client": "webpack",
     "build:server": "webpack --config webpack.server.config.js",
-    "build": "npm run build:client && npm run build:server"
+    "build": "npm run build:client && npm run build:server",
+    "lint": "eslint app/. || exit 0",
+    "fix": "eslint --fix app/ || exit 0."
   },
   "author": "",
   "license": "ISC",
@@ -51,5 +53,16 @@
     "style-loader": "^0.13.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.14.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryan7falcon/duckr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryan7falcon/duckr/issues"
+  },
+  "homepage": "https://github.com/ryan7falcon/duckr#readme"
 }

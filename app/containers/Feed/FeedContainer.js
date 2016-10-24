@@ -17,6 +17,7 @@ const FeedContainer = React.createClass({
     this.props.setAndHandleFeedListener()
   },
   render () {
+    console.log(this.props)
     return (
       <Feed
         duckIds={this.props.duckIds}
@@ -28,7 +29,7 @@ const FeedContainer = React.createClass({
   },
 })
 
-function mapStateToProps ({feed}) {
+function mapStateToProps ({feed}, props) {
   const { newDucksAvailable, error, isFetching, duckIds } = feed
   return {
     newDucksAvailable,

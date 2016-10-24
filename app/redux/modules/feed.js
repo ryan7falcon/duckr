@@ -29,6 +29,7 @@ function settingFeedListenerSuccess (duckIds) {
   }
 }
 
+
 function addNewDuckIdToFeed (duckId) {
   return {
     type: ADD_NEW_DUCK_ID_TO_FEED,

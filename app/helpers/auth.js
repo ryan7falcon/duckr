@@ -1,9 +1,10 @@
 import { ref, firebaseAuth } from 'config/constants'
 
 export default function auth () {
-  // const provider = new firebaseAuth.FacebookAuthProvider()
-  // return firebaseAuth().signInWithPopup(provider)
-  return firebaseAuth().signInWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
+   const provider = new firebaseAuth.GoogleAuthProvider()
+   return firebaseAuth().signInWithRedirect(provider)
+  //return firebaseAuth().createUserWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
+  //return firebaseAuth().signInWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
 }
 
 export function checkIfAuthed (store) {
@@ -15,7 +16,7 @@ export function logout () {
 }
 
 export function saveUser (user) {
-  console.log(user)
+  console.log('User', user)
   return ref.child(`users/${user.uid}`)
     .set(user)
     .then(() => user)
