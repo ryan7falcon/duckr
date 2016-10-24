@@ -28,6 +28,7 @@
     "react": "^0.14.8",
     "react-addons-css-transition-group": "^0.14.8",
     "react-dom": "^0.14.8",
+    "react-icons": "^2.2.1",
     "react-modal": "^1.5.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.0.1",
@@ -59,8 +60,6 @@
     "url": "git+https://github.com/ryan7falcon/duckr.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/ryan7falcon/duckr/issues"
   },
