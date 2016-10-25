@@ -1,16 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 import getRoutes from './config/routes'
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
+import React from 'react'
+import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
+import { browserHistory } from 'react-router'
 import { checkIfAuthed } from 'helpers/auth'
+import { routerReducer, syncHistoryWithStore } from 'react-router-redux'
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import * as reducers from 'redux/modules'
+import thunk from 'redux-thunk'
 
-const store = createStore(combineReducers(reducers), compose(
+const initialState = window.__REDUX_STATE__
+
+export const store = createStore(
+  combineReducers({...reducers, routing: routerReducer}),
+  initialState,
+  compose(
   applyMiddleware(thunk),
-  window.devToolsExtension ? window.devToolsExtension() : (f) => f
+   window.devToolsExtension ? window.devToolsExtension() : (f) => f
   ))
+
+const history = syncHistoryWithStore(browserHistory, store)
 
 function checkAuth (nextState, replace) {
   if (store.getState().users.isFetching === true) {
@@ -19,6 +28,7 @@ function checkAuth (nextState, replace) {
 
   const isAuthed = checkIfAuthed(store)
   const nextPathName = nextState.location.pathname
+
   if (nextPathName === '/' || nextPathName === '/auth') {
     if (isAuthed === true) {
       replace('/feed')
@@ -30,9 +40,9 @@ function checkAuth (nextState, replace) {
   }
 }
 
-ReactDOM.render(
+render(
   <Provider store={store}>
-    {getRoutes(checkAuth)}
+    {getRoutes(checkAuth, history, store)}
   </Provider>,
   document.getElementById('app')
 )
