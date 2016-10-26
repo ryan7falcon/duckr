@@ -61,6 +61,7 @@ export function fetchAndHandleAuthedUser () {
 
 export function logoutAndUnauth () {
   return function (dispatch) {
+    console.log('logging out')
     logout()
     dispatch(unauthUser())
   }

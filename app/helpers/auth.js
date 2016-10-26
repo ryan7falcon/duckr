@@ -1,10 +1,10 @@
 import { ref, firebaseAuth } from 'config/constants'
 
 export default function auth () {
-   const provider = new firebaseAuth.GoogleAuthProvider()
-   return firebaseAuth().signInWithRedirect(provider)
-  //return firebaseAuth().createUserWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
-  //return firebaseAuth().signInWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
+  const provider = new firebaseAuth.GoogleAuthProvider()
+  return firebaseAuth().signInWithRedirect(provider)
+  // return firebaseAuth().createUserWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
+  // return firebaseAuth().signInWithEmailAndPassword('ryan7falcon@gmail.com', 'password')
 }
 
 export function checkIfAuthed (store) {

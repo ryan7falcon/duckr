@@ -23,6 +23,7 @@ const MainContainer = React.createClass({
   componentDidMount () {
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
+        console.log('user', user)
         const userData = user.providerData[0]
         const userInfo = formatUserInfo(userData.displayName, userData.photoURL, user.uid)
         this.props.authUser(user.uid)
@@ -32,6 +33,7 @@ const MainContainer = React.createClass({
           this.context.router.replace('feed')
         }
       } else {
+        console.log('no user')
         this.props.removeFetchingUser()
       }
     })

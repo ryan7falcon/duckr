@@ -19,7 +19,7 @@ function ActionLinks ({isAuthed}) {
   return isAuthed === true
   ? <ul>
       <li><ModalContainer /></li>
-      <li><Link className={link} to='/Logout'>{'Logout'}</Link></li>
+      <li><Link className={link} to='/logout'>{'Logout'}</Link></li>
     </ul>
   : <ul>
     <li><Link className={link} to='/'>{'Home'}</Link></li>
