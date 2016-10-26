@@ -5,7 +5,6 @@ import { checkIfAuthed } from 'helpers/auth'
 import { NotFound } from 'components'
 
 export default function getRoutes (store = {}, history = {browserHistory}) {
-
   function checkAuth (nextState, replace) {
     if (nextPathName === '/logout') return
     if (store.getState().users.isFetching === true) {
@@ -14,8 +13,8 @@ export default function getRoutes (store = {}, history = {browserHistory}) {
     const isAuthed = checkIfAuthed(store)
     const nextPathName = nextState.location.pathname
 
-    console.log('isAuthed', isAuthed)
-    console.log('nextPathName', nextPathName)
+    // console.log('isAuthed', isAuthed)
+    // console.log('nextPathName', nextPathName)
     if (nextPathName === '/' || nextPathName === '/auth') {
       if (isAuthed === true) {
         replace('/feed')
@@ -30,14 +29,13 @@ export default function getRoutes (store = {}, history = {browserHistory}) {
   return (
   <Router history={history}>
     <Router path ='/' component={MainContainer}>
+      <Route path='logout' component = {LogoutContainer}/>
       <IndexRoute component={HomeContainer} onEnter={checkAuth}/>
 
       <Route path='auth' component={AuthenticateContainer} onEnter={checkAuth}/>
       <Route path='feed' component={FeedContainer} onEnter={checkAuth}/>
       <Route path='/:uid' component={UserContainer} onEnter={checkAuth}/>
       <Route path='duckDetail/:duckId' component={DuckDetailsContainer} onEnter={checkAuth}/>
-
-      <Route path='logout' component = {LogoutContainer}/>
       <Route path='*' component={NotFound} status={404} />
     </Router>
   </Router>

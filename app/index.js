@@ -10,16 +10,16 @@ import * as reducers from 'redux/modules'
 
 import thunk from 'redux-thunk'
 
-//const initialState = window.__REDUX_STATE__
+const initialState = window.__REDUX_STATE__
 
 export const store = createStore(
   combineReducers({...reducers, routing: routerReducer}),
-  //initialState,
+  initialState,
   compose(
   applyMiddleware(thunk),
    window.devToolsExtension ? window.devToolsExtension() : (f) => f
   ))
-//const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(browserHistory, store)
 
 render(
   <Provider store={store}>

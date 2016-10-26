@@ -8,8 +8,7 @@ const LogoutContainer = React.createClass({
     dispatch: PropTypes.func.isRequired,
   },
   componentDidMount () {
-    console.log('logout container mount')
-    //this.props.dispatch(logoutAndUnauth())
+    this.props.dispatch(logoutAndUnauth())
   },
   render () {
     return (
